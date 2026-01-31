@@ -1,0 +1,4 @@
+Basic Text File Operations Exercise 1.
+It is a sample text!
+Python program should create a text file with this exact text.
+Python program should append this additional text to exercise1.txt.
