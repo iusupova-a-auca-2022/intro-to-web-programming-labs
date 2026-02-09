@@ -1,0 +1,15 @@
+p {
+    color: white;
+    background-color: black;
+    font-size: 2rem;
+}
+
+.header {
+    color: red;
+    font-size: 5rem;
+}
+
+#image {
+    width: auto;
+    height: 600px;
+}
