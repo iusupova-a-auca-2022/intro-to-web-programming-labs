@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 24 - Order Form</title>
+</head>
+
+<body>
+    <form action="order.php" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="order">Choose your order:</label>
+        <select id="order" name="order">
+            <option value="salad">Salad</option>
+            <option value="rice">Rice</option>
+            <option value="pizza">Pizza</option>
+            <option value="dessert">Dessert</option>
+        </select>
+
+
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" min="1" required>
+
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+    </form>    
+</body>
+</html>

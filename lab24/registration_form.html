@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 24 - Registration Form</title>
+</head>
+
+<body>
+    <form action="register.php" method="post">
+        <label for="fullname">Full Name:</label>
+        <input type="text" id="fullname" name="fullname" required>
+
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" min="16" max="100">
+
+        <p>Gender:</p>
+        <label>
+            <input type="radio" id="male" name="gender" value="male">Male
+        </label>
+        <label>
+            <input type="radio" id="female" name="gender" value="female">Female
+        </label>
+        <label>
+            <input type="radio" name="gender" value="other">Other
+        </label>
+
+        <p>Hobbies:</p>
+        <label>
+            <input type="checkbox" id="coding" name="hobbies" value="coding">Coding
+        </label>
+        <label>
+            <input type="checkbox" id="drawing" name="hobbies" value="drawing">Drawing
+        </label>
+        <label>
+            <input type="checkbox" id="cooking" name="hobbies" value="cooking">Cooking
+        </label>
+        <label>
+            <input type="checkbox" id="watching" name="hobbies" value="watching">Watching TV
+        </label>
+
+        <label for="picture">Upload your profile picture:</label>
+        <input type="file" id="picture" name="picture">
+
+        <button type="submit">Submit</button>
+        <!-- <button type="reset">Reset</button> -->
+        <input type="reset" value="Clear">
+    </form>
+</body>
+</html>
