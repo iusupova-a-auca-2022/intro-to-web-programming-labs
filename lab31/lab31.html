@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 100px 100px;        
+            justify-content: center;
+            padding: 15px;
+            margin: 15px;
+            background-color: gray;
+            gap: 15px;
+        }
+
+        .alignment {
+            display: grid;
+            grid-template-columns: repeat(3, 150px);
+            grid-template-rows: 150px;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            margin: 15px;
+            background-color: darkslateblue;
+            gap: 15px;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            color: white;
+            background-color: darkgreen;
+            text-align: center;
+            border: 3px solid black;
+        }
+    </style>
+
+    <title>Lab31</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+        <div class="box">6</div>
+    </div>
+
+    <div class="alignment">
+        <div class="box">A</div>
+        <div class="box">B</div>
+        <div class="box">C</div>
+    </div>
+</body>
+</html>
