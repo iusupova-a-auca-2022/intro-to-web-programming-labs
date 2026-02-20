@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        .box {
+            width: 150px;
+            height: 150px;
+            background-color: coral;
+            color: white;
+            text-align: center;
+            margin: 15px;
+        }
+
+        #image {
+            display: flex;
+            width: 350px;
+            height: 350px;
+            margin: 15px;
+        }
+    </style>
+
+    <title>Lab 40</title>
+</head>
+
+<body>
+    <p id="title">Practicing DOM Manipulation</p>
+    <button onclick="changeText()">Click Me!</button>
+
+    <div id="content" class="box">DOM (Document Object Model) allows JavaScript to dynamically 
+        interact with and modify web pages.</div>
+    <button onclick="changeBackground()">Change background</button>
+    <button onclick="changeContent()">Change Content</button>
+
+    <img id="image" src="https://hips.hearstapps.com/hmg-prod/images/dahlia-1508785047.jpg?crop=1.00xw:0.669xh;0,0.0136xh" alt="flower"/>
+    <button onclick="changeImage()">Change Image</button>
+
+    <ul id="list">
+        <li>Movies</li>
+        <li>Games</li>
+        <li>Comics</li>
+    </ul>
+    <button onclick="addItem()">Add a new item</button>
+
+    
+    <script>
+        function changeText() {
+            let el = document.getElementById("title");
+
+            el.innerText = "Changing Text Using document.getElementById";
+        }
+
+        function changeBackground() {
+            let el = document.querySelector(".box");
+            el.style.backgroundColor = "green";
+        }
+
+        function changeContent() {
+            let el = document.getElementById("content");
+
+            el.innerHTML = "<strong>Content changed!</strong>";
+        }
+
+        function changeImage() {
+            let el = document.getElementById("image");
+
+            el.setAttribute("src", "https://img.freepik.com/free-photo/white-flower-petals-with-water-drops-pollen_181624-27665.jpg?semt=ais_user_personalization&w=740&q=80");
+        }
+
+        function addItem() {
+            let item = document.createElement("li");
+            item.innerText = "Books";
+            document.getElementById("list").appendChild(item);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        #box {
+            width: 150px;
+            height: 150px;
+            background-color: green;
+            color: white;
+            text-align: center;
+        }
+
+        input {
+            margin-top: 15px;
+        }
+
+        #btn {
+            background-color: purple;
+            color: white;
+            text-align: center;
+        }
+
+        #error {
+            color: red;
+        }
+    </style>
+
+    <title>Lab 41</title>
+</head>
+
+<body>
+    <button onclick="changeText()">Click Me</button>
+    <p id="text">Handling events enables dynamic responses to user actions such as 
+        clicks, keypresses, and mouse movements.</p>
+
+    <div id="box" onmouseover="changeColor()" onmouseout="resetColor()">Hover Over Me</div>
+
+    <input type="text" placeholder="Type something..." onkeydown="showKey(event)">
+    <p id="key">Press a key</p>
+
+    <button id="btn">Click or Hover</button>
+
+    <form id="form">
+        <input type="text" placeholder="Type here...">
+        <button type="submit">Submit</button>
+    </form>
+    <p id="error"></p>
+
+    
+    <script>
+        function changeText() {
+            let el = document.getElementById("text");
+
+            el.innerText = "Button Clicked!";
+        }
+
+        function changeColor() {
+            document.getElementById("box").style.backgroundColor = "blue";
+        }
+
+        function resetColor() {
+            document.getElementById("box").style.backgroundColor = "green";
+        }
+
+        function showKey(event) {
+            document.getElementById("key").innerText = "Last pressed key: " + event.key;
+        }
+
+        let button = document.getElementById("btn");
+
+        button.addEventListener("click", function() {
+            button.style.backgroundColor = "red";
+        })
+
+        button.addEventListener("mouseover", function() {
+            button.style.backgroundColor = "purple";
+        })
+
+        document.getElementById("form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            document.getElementById("error").innerText = "Form is invalid";
+        })
+    </script>
+</body>
+</html>
