@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 15px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        ul div {
+            padding: 10px;
+            width: 50%;
+            background-color: gray;
+            color: white;
+            text-align: center;
+        }
+
+        ul img {
+            width: 100%;
+            height: 100%;
+        }
+
+        ul p {
+            font-weight: bold;
+        }
+    </style>
+
+    <title>Lab 45 - Fetch and Display Images</title>
+</head>
+
+<body>
+    <h2>Images</h2>
+    <ul id="images-list"></ul>
+    
+    <script>
+        fetch("https://jsonplaceholder.typicode.com/photos?_limit=5")
+            .then(response => response.json())
+            .then(images => {
+                let list = document.getElementById("images-list");
+
+                images.forEach(image => {
+                    let li = document.createElement("li");
+
+                    let div = document.createElement("div");
+                    let img = document.createElement("img");
+                    let title = document.createElement("p");
+
+                    img.src = image.url;
+                    img.alt = "Image";
+                    title.textContent = image.title;
+
+                    div.appendChild(img);
+                    div.appendChild(title);
+
+                    li.appendChild(div);
+                    list.appendChild(li);
+                })
+            })
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 15px;
+        }
+
+        button {
+            border: none;
+            border-radius: 5px;
+            background-color: darkblue;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 10px;
+            margin-top: 15px;
+            width: 40%;
+            background-color: darkslateblue;
+            color: white;
+        }
+    </style>
+
+    <title>Lab 45 - Fetch Random Joke from an API</title>
+</head>
+
+<body>
+    <h2>Jokes</h2>
+
+    <button id="get">A New Joke!</button>
+    <ul id="joke"></ul>
+    
+    <script>
+        let btn = document.getElementById("get");
+
+        btn.onclick = function() {
+            fetch("https://official-joke-api.appspot.com/random_joke")
+                .then(response => response.json())
+                .then(joke => {
+                    let list = document.getElementById("joke");
+
+                    let li = document.createElement("li");
+                    let setup = document.createElement("p");
+                    let punchline = document.createElement("p");
+
+                    setup.textContent = joke.setup;
+                    punchline.textContent = joke.punchline;
+
+                    li.appendChild(setup);
+                    li.appendChild(punchline);
+
+                    list.appendChild(li);
+                })
+        }
+    </script>
+</body>
+</html>

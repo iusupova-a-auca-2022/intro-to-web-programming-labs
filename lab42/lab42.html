@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        label {
+            display: flex;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+
+        form {
+            margin-bottom: 15px;
+        }
+    </style>
+
+    <title>Lab 42</title>
+</head>
+
+<body>
+    <label for="username">Enter username:</label>
+    <input id="username" type="text" placeholder="Enter here">
+    <button onclick="showInput()">Submit</button>
+    <p id="input"></p>
+
+    <form onsubmit="return checkInput()">
+        <input id="name" type="text" placeholder="Enter name">
+        <input id="email" type="email" placeholder="Enter email">
+        <button type="submit">Submit</button>
+    </form>
+
+    <form onsubmit="return checkEmail()">
+        <label for="email">Email:</label>
+        <input id="emailF" type="email" placeholder="Type here">
+        <button type="submit">Submit</button>
+    </form>
+
+    <form onsubmit="return checkAge()">
+        <input id="age" type="text" placeholder="Enter age">
+        <button type="submit">Submit</button>
+    </form>
+
+    <form id="form">
+        <label for="username">Enter name:</label>
+        <input id="usersname" type="text" placeholder="Enter name">
+        <label for="email">Enter email:</label>
+        <input id="usersemail" type="email" placeholder="Enter email">
+        <label for="age">Enter age:</label>
+        <input id="usersage" type="text" placeholder="Enter age">
+        <button type="submit">Submit</button>
+    </form>
+    <p id="output"></p>
+
+    
+    <script>
+        function showInput(event) {
+            let name = document.getElementById("username").value;
+
+            document.getElementById("input").innerText = name;
+        }
+
+        function checkInput() {
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+
+            if (name.trim() === "" || email.trim() === "") {
+                alert("Empty input");
+                return false;
+            }
+
+            return true;
+        }
+
+        function checkEmail() {
+            let email = document.getElementById("emailF").value;
+            let pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!pattern.test(email)) {
+                alert("Invalid email");
+                return false;
+            }
+
+            return true;
+        }
+
+        function checkAge() {
+            let age = document.getElementById("age").value;
+
+            if (isNaN(age) || age.trim() === "") {
+                alert("Invalid input")
+                return false;
+            }
+
+            return true;
+        }
+
+        document.getElementById("form").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            let name = document.getElementById("usersname").value;
+            let email = document.getElementById("usersemail").value;
+            let age = document.getElementById("usersage").value;
+            let pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (name.trim() === "" || email.trim() === "" || age.trim() === "") {
+                alert("Empty input");
+                return;
+            }
+
+            if (!pattern.test(email)) {
+                alert("Invalid email");
+                return;
+            }
+
+            if (isNaN(age)) {
+                alert("Invalid age")
+                return;
+            }
+
+            document.getElementById("output").innerText = "Successful submission!";
+        })
+    </script>
+</body>
+</html>
